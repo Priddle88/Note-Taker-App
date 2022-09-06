@@ -1,4 +1,4 @@
-const { info } = require('console');
+// const { info } = require('console');
 const express = require('express');
 const path = require('path');
 let notes = require('./db/db.json');
@@ -18,7 +18,6 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('/api/notes', (req, res) => {
-    console.info(notes)
     res.json(notes)
 });
 
@@ -35,26 +34,17 @@ app.post('/api/notes', (req, res) => {
 
     req.body.id = uniqueId
     notes.push(req.body)
-    console.info(notes)
     res.json(notes)
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    console.info('req.body')
-
-    console.info(req.params.id)
-    console.info(notes)
 
     for (i = 0; i < notes.length; i++) {
         if (notes[i].id == req.params.id) {
-            console.info(true)
             notes.splice(i, 1)
-        } else {
-            console.info(false);
         }
     }
 
-    console.info(notes)
     res.json(notes)
 });
 
