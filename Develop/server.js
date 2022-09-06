@@ -1,7 +1,7 @@
 const { info } = require('console');
 const express = require('express');
 const path = require('path');
-const notes = require('./db/db.json');
+let notes = require('./db/db.json');
 const generateUniqueId = require('generate-unique-id');
 
 const PORT = process.env.PORT || 3001;
@@ -40,11 +40,22 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    // console.info(notes[0])
-    // console.info(`req body:${req.body}`)
-    // let id = req.params.id
-    // console.info(id)
-    // res.json(notes[0])
+    console.info('req.body')
+
+    console.info(req.params.id)
+    console.info(notes)
+
+    for (i = 0; i < notes.length; i++) {
+        if (notes[i].id == req.params.id) {
+            console.info(true)
+            notes.splice(i, 1)
+        } else {
+            console.info(false);
+        }
+    }
+
+    console.info(notes)
+    res.json(notes)
 });
 
 app.get('*', (req, res) =>
