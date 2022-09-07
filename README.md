@@ -21,6 +21,8 @@ You have to install inquirer, and run npm i to make sure everything is up to dat
 
 run the page with npm start or node server.js
 
+[Link to Site](https://priddle88.github.io/Note-Taker-App/public/index.html)
+
 ![Screenshot of site](./images/screenshot-1.png)
 
 ![Screenshot of site](./images/screenshot-2.png)
